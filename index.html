@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sanchat Messenger</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Container */
+    #auth-section, #chat-section {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      width: 350px;
+    }
+
+    /* Inputs */
+    input[type="email"], input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+      border-color: #4facfe;
+      box-shadow: 0 0 5px #4facfe;
+    }
+
+    /* Buttons */
+    button {
+      width: 48%;
+      padding: 10px;
+      margin: 5px 1%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    button:nth-child(1) { background: #4facfe; color: #fff; }
+    button:nth-child(2) { background: #00f2fe; color: #fff; }
+
+    /* Chat Messages */
+    #messages {
+      border: 1px solid #ccc;
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* Message Input & Send */
+    #messageInput {
+      width: 70%;
+      margin-right: 2%;
+    }
+
+    #chat-section button {
+      width: 26%;
+      background: #4facfe;
+      color: #fff;
+    }
+
+    /* Error Message */
+    #authError {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-section">
+    <h1>🔥 Sanchat Messenger</h1>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="login()">Login</button>
+    <p id="authError"></p>
+  </div>
+
+  <div id="chat-section" style="display:none;">
+    <h2>Chat Room</h2>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+</body>
+</html>
